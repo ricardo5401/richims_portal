@@ -1,8 +1,22 @@
-<nav class="relative w-full max-w-xl mx-auto p-5 flex">
-  <a href="/" class="no-underline">
-    <div class="bg-white text-black p-1 px-4 font-medium text-lg relative border w-fit">
-      MapleLatino
-      <img src="<%= asset_path('maple-leaf-150.png') %>" class="absolute leaf r-0" />
-    </div>
+<nav class="relative w-full p-5 flex items-center justify-around sm:justify-between flex-wrap nav-custom">
+  <a href="/" class="no-underline bg-white text-black py-1 px-3 font-bold text-lg relative rounded w-fit md:ml-1">
+    MapleLatino
+    <img src="<%= asset_path('menu/maple-leaf-150.png') %>" class="absolute leaf" />
+  </a>
+  <a href="/register" class="no-underline bg-white text-black py-0.5 px-2 font-medium text-sm relative rounded w-fit flex items-center">
+    <img src="<%= asset_path('menu/snail.png') %>" class="w-7 mr-1 my-1" />
+    <%= I18n.t 'menu.register' %>
+  </a>
+  <a href="/downloads" class="no-underline bg-white text-black py-0.5 pl-2 pr-4 font-medium text-sm relative rounded w-fit flex items-center">
+    <img src="<%= asset_path('menu/mushrom.png') %>" class="w-8" />
+    <%= I18n.t 'menu.downloads' %>
+  </a>
+  <a href="/rankings" class="no-underline bg-white text-black py-0.5 px-2 font-medium text-sm relative rounded w-fit flex items-center">
+    <img src="<%= asset_path('menu/pig.png') %>" class="w-8 mr-1 my-1" />
+    <%= I18n.t 'menu.rankings' %>
+  </a>
+  <a href="/vote" class="no-underline bg-white text-black py-0.5 pl-2 pr-4 font-medium text-sm relative rounded w-fit flex items-center">
+    <img src="<%= asset_path('menu/vote.png') %>" class="w-8" />
+    <%= I18n.t 'menu.vote' %>
   </a>
 </nav>

@@ -1,0 +1,26 @@
+<div class="login-container relative">
+  <div class="absolute bg-white text-black font-medium top-5 left-1/2 transform -translate-x-1/2 leading-3 p-1 rounded">
+    STATS
+  </div>
+  <br/>
+  <div class="child-content mt-7">
+    <div class="mb-1">
+      <%= I18n.t 'stats.players' %>: <span class="font-medium"><%= @online_count || 0 %></span>
+    </div>
+    <div class="mb-8">
+      <%= I18n.t 'stats.characters' %>: <span class="font-medium"><%= @characters_count || 0 %></span>
+    </div>
+    <div class="mb-1">
+      <%= I18n.t 'stats.version' %>: <span class="font-medium text-blue-500">111</span>
+    </div>
+    <div class="mb-1">
+      Exp Rate: <span class="font-medium">3x</span>
+    </div>
+    <div class="mb-1">
+      Meso Rate: <span class="font-medium">2x</span>
+    </div>
+    <div class="mb-1">
+      Drop Rate: <span class="font-medium">2x</span>
+    </div>
+  </div>
+</div>

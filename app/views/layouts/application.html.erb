@@ -8,13 +8,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <body class="main-bg">
-    <%= render partial: 'shared/nav' %>
-    <%= yield %>
+  <body class="main-bg pb-10">
+    <div class="w-full max-w-4xl mx-auto">
+      <%= render partial: 'shared/nav' %>
+      <div class="w-full flex flex-col sm:flex-row">
+        <div class="w-sidebar mx-auto">
+          <%= render partial: 'shared/account' %>
+          <br />
+          <%= render partial: 'shared/stats' %>
+        </div>
+        <div class="w-full sm:w-leftbar">
+          <%= yield %>
+        </div>
+      </div>
+      <%= render partial: 'shared/flash' %>
+    </div>
   </body>
 </html>

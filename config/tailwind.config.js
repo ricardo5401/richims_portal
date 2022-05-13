@@ -9,8 +9,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Rubik', ...defaultTheme.fontFamily.sans],
       },
+      width: {
+        sidebar: "250px",
+        leftbar: "calc(100% - 250px)"
+      }
     },
   },
   plugins: [

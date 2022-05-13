@@ -1,0 +1,25 @@
+es:
+  menu:
+    register: "Registro"
+    downloads: "Descargas"
+    rankings: "Rankings"
+    vote: "Votar"
+    login: "LOGIN"
+    account: "CUENTA"
+    logout: "Salir"
+    unstuck: "Desbloquear cuenta"
+    under_construction: "En Construcción"
+    notice: "Noticias"
+    events: "Eventos"
+  login:
+    username: 'Usuario'
+    password: 'Contraseña'
+    start: 'Iniciar sesión'
+    sending: 'Enviando...'
+    error: 'Usuario o contraseña inválidos'
+  stats:
+    players: 'Jugadores Online'
+    characters: 'Personajes'
+    version: 'Versión'
+  downloads:
+    from: 'Descarga MSLatino desde'

@@ -1,0 +1,56 @@
+<div class="login-container relative">
+  <% if @user_signed_in %>
+    <div class="absolute bg-white text-black font-medium top-5 left-1/2 transform -translate-x-1/2 leading-3 p-1 rounded">
+      <%= I18n.t 'menu.account' %>
+    </div>
+    <br/>
+    <div class="child-content mt-7">
+      <div class="mb-2">
+        <a href="/characters" class="text-blue-700 font-medium">
+          <%= I18n.t('stats.characters') %>
+        </a>
+      </div>
+      <div class="mb-2">
+        <a href="/unstuck" class="text-blue-700 font-medium">
+          <%= I18n.t('menu.unstuck') %>
+        </a>
+      </div>
+      <%= form_tag logout_path, method: :delete do %>
+        <button type="submit" class="p-0 border-0 bg-transparent text-blue-700 font-medium">
+          <%= I18n.t('menu.logout') %>
+        </button>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="absolute bg-white text-black font-medium top-5 left-1/2 transform -translate-x-1/2 leading-3 p-1 rounded">
+      <%= I18n.t 'menu.login' %>
+    </div>
+    <br/>
+    <br/>
+    <%= form_tag '/login', class: 'left-form', method: :post do |f| %>
+      <div class="mb-5 w-full">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="<%= I18n.t 'login.username' %>"
+          autocomplete="off"
+          class="w-full without-ring rounded border border-gray-200 shadow"
+        >
+      </div>
+      <div class="mb-5 w-full">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          autocomplete="new-password"
+          placeholder="<%= I18n.t 'login.password' %>"
+          class="w-full without-ring rounded border border-gray-200 shadow"
+        >
+      </div>
+      <button class="w-full rounded bg-blue-500 text-white py-1">
+        <%= I18n.t 'login.start' %>
+      </button>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,24 @@
+<div class="w-full right-content">
+  <img src="<%= asset_path('background/top-grass.png') %>" class="w-full" />
+  <div class="child-container">
+    <h1 class="font-medium text-lg">
+      <%= I18n.t 'menu.downloads' %>
+    </h1>
+    <a href="https://mega.nz/file/JN4zHDAR#q7yM43yxd-7kA7C1et7InAxyUVjOAlSP1a3ZOQce0Q0" target="_blank">
+      <div class="my-2 download-row rounded p-5 flex items-center">
+        <img src="<%= asset_path('downloads/mega.png') %>" class="rounded overflow-hidden" />
+        <div class="pl-5">
+          <%= I18n.t 'downloads.from' %> Mega
+        </div>
+      </div>
+    </a>
+    <a href="https://drive.google.com/file/d/1yqIU_NXdmq8YqNwas1mH6nMRJzyHJ33t/view?usp=sharing" target="_blank">
+      <div class="my-2 download-row rounded p-5 flex items-center">
+        <img src="<%= asset_path('downloads/google_drive.png') %>" class="rounded overflow-hidden" />
+        <div class="pl-5">
+          <%= I18n.t 'downloads.from' %> Google Drive
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
