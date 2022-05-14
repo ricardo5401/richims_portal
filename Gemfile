@@ -71,6 +71,7 @@ group :development do
   gem 'capistrano-nvm', require: false
   gem 'capistrano-rake', require: false
   gem 'capistrano-rvm', require: false
+  gem 'sshkit'
 end
 
 group :test do
