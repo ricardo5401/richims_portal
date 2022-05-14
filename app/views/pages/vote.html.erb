@@ -9,7 +9,7 @@
     </div>
     <div class="w-full mt-2 flex items-center">
       <input
-        id="username"
+        id="vote-username"
         type="text"
         placeholder="<%= I18n.t('vote.account') %>"
         maxlength="20"
@@ -30,10 +30,10 @@
 </div>
 <script>
   const onClick = () => {
-		const text = document.getElementById("username");
+		const text = document.getElementById("vote-username");
 	  const error = document.getElementById("error");
 		if (text && text.value !== "") {
-			window.open(`https://gtop100.com/topsites/MapleStory/sitedetails/MapleLatino-100792?vote=1&username=${text.value}`, "_blank");
+			window.open(`https://gtop100.com/topsites/MapleStory/sitedetails/MapleLatino-100792?vote=1&pingUsername=${text.value}`, "_blank");
     } else {
 			if (error) {
 				error.innerText = "Ingresa tu usuario";
