@@ -1,11 +1,12 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.0"
 
+set :user,            'deploy'
 set :stages, %w(production staging)
 set :default_stage, 'staging'
 
 set :application, "richims"
-set :repo_url, "https://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@github.com/ricardo5401/richims_portal.git"
+set :repo_url, "https://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@github.com/ricardo5401/richims_portal.git"
 
 set :deploy_via,              :remote_cache
 set :deploy_to,               "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
