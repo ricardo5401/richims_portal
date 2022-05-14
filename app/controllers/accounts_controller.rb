@@ -54,7 +54,7 @@ class AccountsController < ApplicationController
 	end
 
 	def vote_callback
-		account = Account.find_by(name: params[:username])
+		account = Account.find_by(name: params[:pingUsername])
 		if account
 			account.ACash += 5000
 			account.totalvotes += 1
