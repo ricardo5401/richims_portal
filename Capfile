@@ -3,7 +3,6 @@ require 'capistrano/deploy'
 require 'capistrano/rails'
 require 'capistrano/bundler'
 require 'capistrano/rvm'
-require 'capistrano/yarn'
 require 'capistrano/puma'
 require 'capistrano/scm/git'
 install_plugin Capistrano::SCM::Git
