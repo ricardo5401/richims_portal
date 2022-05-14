@@ -6,6 +6,7 @@ set :stages, %w(production staging)
 set :default_stage, 'staging'
 
 set :application, "richims"
+set :branch, "main"
 set :repo_url, "git@github.com:ricardo5401/richims_portal.git"
 
 set :deploy_via,              :remote_cache
