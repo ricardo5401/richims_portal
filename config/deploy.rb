@@ -9,6 +9,8 @@ set :application, "richims"
 set :branch, "main"
 set :repo_url, "git@github.com:ricardo5401/richims_portal.git"
 
+set :pty,                     true
+set :use_sudo,                false
 set :deploy_via,              :remote_cache
 set :deploy_to,               "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :puma_bind,               "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
