@@ -73,3 +73,6 @@ end
 
 gem 'sass-rails'
 gem 'tailwindcss-rails'
+gem "recaptcha"
+gem 'dotenv-rails'
+gem 'will_paginate'

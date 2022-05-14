@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
 	def server_stats
 		@online_count = Account.where.not(loggedin: 0).count
 		@characters_count = Character.count
+		@username = Account.select(:name).find_by(id: session[:current_user_id])&.name if @user_signed_in
 	end
 
 	def switch_locale(&action)

@@ -13,9 +13,9 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: riff
-  password: ubook123
-  host: localhost
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOST'] ||'localhost' %>
 
 development:
   <<: *default
@@ -50,6 +50,4 @@ test:
 #
 production:
   <<: *default
-  database: richims_portal_production
-  username: richims_portal
-  password: <%= ENV["RICHIMS_PORTAL_DATABASE_PASSWORD"] %>
+  database: richims

@@ -4,8 +4,25 @@
     <h1 class="font-medium text-lg">
       <%= I18n.t 'stats.characters' %>
     </h1>
-    <div class="w-full mt-2">
-      <img src="<%= asset_path('background/construction.jpg') %>" />
+    <div class="w-full mt-2 grid grid-cols-3 gap-4">
+      <% @characters.each do |character| %>
+        <div class="border border-gray-200 shadow rounded">
+          <div class="px-3 py-2 border-b border-gray-200">
+            <%= character.name %>
+          </div>
+          <div class="px-3 py-2">
+            <div class="mb-1">
+              <span class="font-medium">Job:</span> <%= character.job_name %>
+            </div>
+            <div class="mb-1">
+              <span class="font-medium">Level:</span> <%= character.level %>
+            </div>
+            <div class="">
+              <span class="font-medium">Exp:</span> <%= character.exp %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

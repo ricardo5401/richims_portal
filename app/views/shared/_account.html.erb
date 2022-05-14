@@ -3,17 +3,24 @@
     <div class="absolute bg-white text-black font-medium top-5 left-1/2 transform -translate-x-1/2 leading-3 p-1 rounded">
       <%= I18n.t 'menu.account' %>
     </div>
-    <br/>
-    <div class="child-content mt-7">
+    <br />
+    <div class="child-content mt-6">
+      <% if @username %>
+        <div class="mb-6 font-medium">
+          <%= @username %>
+        </div>
+      <% end %>
       <div class="mb-2">
         <a href="/characters" class="text-blue-700 font-medium">
           <%= I18n.t('stats.characters') %>
         </a>
       </div>
       <div class="mb-2">
-        <a href="/unstuck" class="text-blue-700 font-medium">
-          <%= I18n.t('menu.unstuck') %>
-        </a>
+        <%= form_tag unstuck_path, method: :post do %>
+          <button type="submit" class="p-0 border-0 bg-transparent text-blue-700 font-medium">
+            <%= I18n.t('menu.unstuck') %>
+          </button>
+        <% end %>
       </div>
       <%= form_tag logout_path, method: :delete do %>
         <button type="submit" class="p-0 border-0 bg-transparent text-blue-700 font-medium">

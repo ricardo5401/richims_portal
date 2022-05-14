@@ -2,11 +2,15 @@ Rails.application.routes.draw do
   get 'characters/index'
 	root 'pages#index'
 	get '/downloads', to: 'pages#downloads'
-	get '/register', to: 'pages#register'
-	get '/rankings', to: 'pages#rankings'
+	get '/register', to: 'accounts#register'
+	get '/rankings', to: 'characters#rankings'
 	get '/vote', to: 'pages#vote'
-  get '/unstuck', to: 'pages#unstuck'
+  get '/characters', to: 'characters#index'
+  get '/unlocked', to: 'accounts#unlocked'
+  post '/gtop100/callback', to: 'accounts#vote_callback'
+  post '/unstuck', to: 'accounts#unstuck'
 	post '/login', to: 'accounts#login'
+  post '/accounts', to: 'accounts#create'
 	delete '/logout', to: 'accounts#logout', as: :logout
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
