@@ -67,7 +67,7 @@ class AccountsController < ApplicationController
 
 	def check_valid_captcha(account)
 		if Rails.env.production?
-			verify_recaptcha(model: account)
+			verify_recaptcha(model: account, action: 'registration')
 		else
 			true
 		end

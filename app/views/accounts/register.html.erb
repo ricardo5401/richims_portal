@@ -47,7 +47,7 @@
           </div>
         </div>
         <% if Rails.env.production? %>
-        <%= recaptcha_tags %>
+          <%= recaptcha_v3(action: 'registration', site_key: ENV['RECAPTCHA_SITE_KEY']) %>
         <% end %>
         <div class="flex justify-between items-center">
           <span class="text-red-700 text-sm">
