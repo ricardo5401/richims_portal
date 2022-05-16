@@ -33,7 +33,7 @@ class AccountsController < ApplicationController
 	def create
 		account = Account.new(new_account_params)
 		if check_valid_captcha(account)
-			if !account.email || Account.where("name = ? or email = ?", account.name, account.email).count.positive?
+			if !account.name || !account.email || Account.where("name = ? or email = ?", account.name, account.email).count.positive?
 				flash[:error] = I18n.t('register.error')
 				redirect_to '/register'
 			else
