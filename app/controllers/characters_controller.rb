@@ -11,7 +11,7 @@ class CharactersController < ApplicationController
   def online
     if @current_user&.gm
       @page = params[:page] || 1
-      @per_page = 5
+      @per_page = 4
       @accounts = Account.where.not(loggedin: 0)
                          .includes(:characters)
                          .paginate(page: @page, per_page: @per_page)
@@ -23,7 +23,7 @@ class CharactersController < ApplicationController
 
   def rankings
     @page = (params[:page] || 1).to_i
-    @per_page = 15
+    @per_page = 10
     @characters = Character.where(gm: 0)
                            .order(level: :desc, exp: :desc)
                            .paginate(page: @page, per_page: @per_page)
