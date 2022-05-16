@@ -23,7 +23,7 @@ class CharactersController < ApplicationController
 
   def rankings
     @page = (params[:page] || 1).to_i
-    @per_page = 20
+    @per_page = 15
     @characters = Character.where(gm: 0)
                            .order(level: :desc, exp: :desc)
                            .paginate(page: @page, per_page: @per_page)
