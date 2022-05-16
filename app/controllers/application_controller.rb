@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
 	def server_stats
 		@online_count = Account.where.not(loggedin: 0, gm: false).count
-		@characters_count = Character.count
+		@characters_count = Character.where(gm: 0).count
 		@username = current_user&.name if @user_signed_in
 	end
 
