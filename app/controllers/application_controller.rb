@@ -2,19 +2,23 @@ class ApplicationController < ActionController::Base
 	around_action :switch_locale
 	before_action :user_signed_in
 	before_action :server_stats
+	helper_method :current_user
 
 
 	private
 
+	def current_user
+		@current_user ||= Account.find_by(id: session[:current_user_id])
+	end
+
 	def user_signed_in
 		@user_signed_in = (session[:current_user_id] || 0) > 0
-		puts "try? #{@user_signed_in}"
 	end
 
 	def server_stats
-		@online_count = Account.where.not(loggedin: 0).count
+		@online_count = Account.where.not(loggedin: 0, gm: false).count
 		@characters_count = Character.count
-		@username = Account.select(:name).find_by(id: session[:current_user_id])&.name if @user_signed_in
+		@username = current_user&.name if @user_signed_in
 	end
 
 	def switch_locale(&action)

@@ -13,6 +13,7 @@ es:
     events: "Eventos"
     unlocked: "Cuenta Desbloqueada"
     unlocked_message: "Hemos tenido exito al desblologuear tu cuenta del juego"
+    online_players: "Jugadores en linea"
   vote:
     message: 'Gana 5000 NX Créditos por votar, puedes votar cada 5 horas. Recuerda que debes estar desconectado del juego'
     account: 'Cuenta (con la que inicias sesión)'

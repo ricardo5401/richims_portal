@@ -4,7 +4,7 @@
     <h1 class="font-medium text-lg">
       <%= I18n.t 'menu.rankings' %>
     </h1>
-    <div class="w-full mt-2">
+    <div class="w-full mt-2 overflow-x-auto">
       <table class="border-collapse border border-slate-400 w-full">
         <thead>
           <tr>
@@ -30,5 +30,6 @@
         </tbody>
       </table>
     </div>
+    <%= will_paginate @characters, previous_label: '<', next_label: '>' %>
   </div>
 </div>

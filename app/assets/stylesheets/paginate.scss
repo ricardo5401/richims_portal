@@ -1,0 +1,102 @@
+.pagination {
+  text-align: center;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pagination .disabled {
+  border-color: #D9DCE7 !important;
+  color: #B2B4BC !important;
+}
+
+.pagination .current {
+  color: #256EFF;
+  background-color: #F1F6FF;
+  border-color: #256EFF;
+  cursor: default;
+  font-style: normal;
+}
+
+.pagination a, .pagination span, .pagination em, .pagination .previous_page, .pagination .next_page {
+  position: relative;
+  text-decoration: none;
+  color: #676767;
+  background-color: #ffffff;
+  border: 1px solid #D9DCE7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.pagination .previous_page, .pagination .next_page {
+  font-weight: 500;
+}
+
+.pagination .previous_page {
+  @apply rounded;
+}
+
+.pagination .next_page {
+  @apply rounded;
+}
+
+.pagination a {
+  @apply rounded;
+}
+
+.pagination em{
+  @apply rounded;
+}
+
+.pagination .gap{
+  @apply rounded;
+}
+
+.pagination span.gap:before {
+  content: "...";
+}
+
+.pagination a:hover, .pagination a:focus {
+  background-color: #F1F6FF;
+  border-color: #D9DCE7;
+}
+
+.pagination .page_info {
+  color: #aaaaaa;
+  padding-top: 0.8em;
+}
+
+@media only screen and (max-width: 600px) {
+  .pagination a {
+    display: none;
+  }
+  .pagination a[rel="prev"], .pagination a[rel="next"], .pagination a.active, .pagination a:first-child, .pagination a:last-child, .pagination a:nth-last-child(2) {
+    display: flex;
+  }
+}
+
+.pagination-mobile .pagination {
+  padding: 0;
+}
+
+.pagination-mobile .pagination a,
+.pagination-mobile .pagination em {
+  display: none;
+}
+
+.pagination-mobile .pagination .previous_page,
+.pagination-mobile .pagination .next_page {
+  display: inline-flex;
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.pagination-mobile .pagination .next_page {
+  margin-right: 0px;
+}

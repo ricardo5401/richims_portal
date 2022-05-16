@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 	get '/rankings', to: 'characters#rankings'
 	get '/vote', to: 'pages#vote'
   get '/characters', to: 'characters#index'
+  get '/online_characters', to: 'characters#online'
   get '/unlocked', to: 'accounts#unlocked'
   post '/gtop100/callback', to: 'accounts#vote_callback'
   post '/unstuck', to: 'accounts#unstuck'
