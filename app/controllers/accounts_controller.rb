@@ -56,8 +56,7 @@ class AccountsController < ApplicationController
 	def vote_callback
 		account = Account.find_by(name: params[:pingUsername])
 		if account
-			account.ACash += 5000
-			account.totalvotes += 1
+			account.nxCredit += 5000
 			account.save!
 		end
 		redirect_to '/'
