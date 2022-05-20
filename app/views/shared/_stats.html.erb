@@ -11,16 +11,16 @@
       <%= I18n.t 'stats.characters' %>: <span class="font-medium"><%= @characters_count || 0 %></span>
     </div>
     <div class="mb-1">
-      <%= I18n.t 'stats.version' %>: <span class="font-medium text-blue-500">111</span>
+      <%= I18n.t 'stats.version' %>: <span class="font-medium text-blue-500"><%= I18n.t 'stats.version_number' %></span>
     </div>
     <div class="mb-1">
-      Exp Rate: <span class="font-medium">3x</span>
+      Exp Rate: <span class="font-medium"><%= I18n.t 'stats.exp' %></span>
     </div>
     <div class="mb-1">
-      Meso Rate: <span class="font-medium">2x</span>
+      Meso Rate: <span class="font-medium"><%= I18n.t 'stats.mesos' %></span>
     </div>
     <div class="mb-1">
-      Drop Rate: <span class="font-medium">2x</span>
+      Drop Rate: <span class="font-medium"><%= I18n.t 'stats.drop' %></span>
     </div>
   </div>
 </div>

@@ -10,7 +10,7 @@
           <%= @username %>
         </div>
       <% end %>
-      <% if @current_user&.gm %>
+      <% if @current_user&.webadmin %>
         <div class="mb-2">
           <a href="/online_characters" class="text-blue-700 font-medium">
             <%= I18n.t('menu.online_players') %>

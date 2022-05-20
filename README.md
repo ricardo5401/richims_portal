@@ -25,3 +25,5 @@ Things you may want to cover:
 
 
 Revisar: sudo chmod -R 755 /var/run/mysqld
+
+sudo apt-get install libmysqlclient-dev

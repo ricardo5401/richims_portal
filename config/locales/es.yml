@@ -35,6 +35,10 @@ es:
     players: 'Jugadores Online'
     characters: 'Personajes'
     version: 'Versión'
+    version_number: '83'
+    exp: 'x3'
+    drop: 'x2'
+    mesos: 'x2'
   downloads:
     from: 'Descarga MSLatino desde'
   jobs:

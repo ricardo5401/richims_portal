@@ -9,7 +9,7 @@ class CharactersController < ApplicationController
   end
 
   def online
-    if @current_user&.gm
+    if @current_user&.webadmin
       @page = params[:page] || 1
       @per_page = 4
       @accounts = Account.where.not(loggedin: 0)
