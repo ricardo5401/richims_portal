@@ -37,7 +37,7 @@ class AccountsController < ApplicationController
 				flash[:error] = I18n.t('register.error')
 				redirect_to '/register'
 			else
-				account.password = Digest::SHA1.hexdigest(params[:account][:password])
+				account.password = account.generate_password(params[:account][:password])
 				account.tempban = DateTime.now - 5.years
 				account.save!
 				session[:current_user_id] = account.id
