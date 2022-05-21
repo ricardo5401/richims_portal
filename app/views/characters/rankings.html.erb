@@ -1,9 +1,27 @@
 <div class="w-full right-content">
   <img src="<%= asset_path('background/top-grass.png') %>" class="w-full" />
   <div class="child-container">
-    <h1 class="font-medium text-lg">
-      <%= I18n.t 'menu.rankings' %>
-    </h1>
+    <div class="flex justify-between items-center mb-1">
+      <h1 class="font-medium text-lg">
+        <%= I18n.t 'menu.rankings' %>
+      </h1>
+      <form class="flex items-center">
+        <% if @query != '' %>
+        <a href="/rankings" class="mr-3 text-blue-600 text-md font-medium">
+          x
+        </a>
+        <% end %>
+        <input
+          type="text"
+          id="query"
+          name="query"
+          autocomplete="new-password"
+          placeholder="<%= I18n.t 'menu.search' %>"
+          value="<%= @query %>"
+          class="rounded border border-gray-200 shadow focus:ring-0"
+        >
+      </form>
+    </div>
     <div class="w-full mt-2 overflow-x-auto">
       <table class="border-collapse border border-slate-400 w-full">
         <thead>
@@ -19,9 +37,11 @@
           <% @characters.each_with_index do |character, index| %>
           <tr>
             <td class="border border-slate-300 px-3 py-2">
-              <%= ((@page - 1) * @per_page) + (index + 1) %>
+              <%= character.rank %>
             </td>
-            <td class="border border-slate-300 px-3 py-2"></td>
+            <td class="border border-slate-300 px-3 py-2">
+              <img data-src="<%= character.picture %>" alt="<%= character.name %>" class="hidden lazy" />
+            </td>
             <td class="border border-slate-300 px-3 py-2"><%= character.name %></td>
             <td class="border border-slate-300 px-3 py-2"><%= character.job_name %></td>
             <td class="border border-slate-300 px-3 py-2"><%= character.level %></td>
@@ -33,3 +53,12 @@
     <%= will_paginate @characters, previous_label: '<', next_label: '>' %>
   </div>
 </div>
+<script>
+  window.onload = function () {
+		const pictures = document.getElementsByClassName("lazy");
+		for(let i = 0; i < pictures.length; i += 1) {
+			pictures[i].src = pictures[i].dataset.src;
+			pictures[i].classList.remove("hidden");
+    }
+  }
+</script>

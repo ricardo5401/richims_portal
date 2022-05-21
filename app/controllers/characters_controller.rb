@@ -22,10 +22,21 @@ class CharactersController < ApplicationController
   end
 
   def rankings
+    @query = params[:query] || ''
     @page = (params[:page] || 1).to_i
-    @per_page = 10
-    @characters = Character.where(gm: 0)
-                           .order(level: :desc, exp: :desc)
+    @per_page = 5
+    @characters = Character.where(build_params)
+                           .order(rank: :asc, level: :desc, exp: :desc)
                            .paginate(page: @page, per_page: @per_page)
+  end
+
+  private
+
+  def build_params
+    if @query != ''
+      "lower(name) like '%#{@query.downcase}%' and gm = 0"
+    else
+      "gm = 0"
+    end
   end
 end

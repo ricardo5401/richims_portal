@@ -10,6 +10,9 @@
           <div class="px-3 py-2 border-b border-gray-200">
             <%= character.name %>
           </div>
+          <div class="flex justify-center">
+            <img data-src="<%= character.picture %>" alt="<%= character.name %>" class="hidden lazy" />
+          </div>
           <div class="px-3 py-2">
             <div class="mb-1">
               <span class="font-medium">Job:</span> <%= character.job_name %>
@@ -26,3 +29,12 @@
     </div>
   </div>
 </div>
+<script>
+	window.onload = function () {
+		const pictures = document.getElementsByClassName("lazy");
+		for(let i = 0; i < pictures.length; i += 1) {
+			pictures[i].src = pictures[i].dataset.src;
+			pictures[i].classList.remove("hidden");
+		}
+	}
+</script>

@@ -14,6 +14,7 @@ en:
     unlocked: "Account Ulocked!"
     unlocked_message: "We unstucked your account from logien server"
     online_players: "Online players"
+    search: "Search"
   vote:
     message: 'Earn 5000 NX Credit for voting, you can vote every 5 hours. Remember disconnect from game server'
     account: 'Account (with which you log in)'
