@@ -34,9 +34,9 @@ class CharactersController < ApplicationController
 
   def build_params
     if @query != ''
-      "lower(name) like '%#{@query.downcase}%' and gm = 0"
+      "lower(name) like '%#{@query.downcase}%' and gm < 2"
     else
-      "gm = 0"
+      "gm < 2"
     end
   end
 end
