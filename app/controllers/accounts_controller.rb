@@ -37,6 +37,9 @@ class AccountsController < ApplicationController
 				flash[:error] = I18n.t('register.error')
 				redirect_to '/register'
 			else
+				account.nxCredit = 0
+				account.maplePoint = 0
+				account.nxPrepaid = 0
 				account.password = account.generate_password(params[:account][:password])
 				account.tempban = DateTime.now - 5.years
 				account.save!
@@ -55,7 +58,8 @@ class AccountsController < ApplicationController
 
 	def vote_callback
 		account = Account.find_by(name: params[:pingUsername])
-		if account
+		if account.present?
+			account.nxCredit = 0 if !account.nxCredit
 			account.nxCredit += 5000
 			account.save!
 		end
