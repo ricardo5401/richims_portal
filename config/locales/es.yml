@@ -15,6 +15,12 @@ es:
     unlocked_message: "Hemos tenido exito al desblologuear tu cuenta del juego"
     online_players: "Jugadores en linea"
     search: "Buscar"
+  pack_item:
+    0: 'Mesos'
+    1: 'Maple Points'
+    2: 'Nx Prepaid'
+    3: 'Prepaid + Nx Credit'
+    4: 'Nx Credit'
   vote:
     message: 'Gana 5000 NX Créditos por votar, puedes votar cada 5 horas. Recuerda que debes estar desconectado del juego'
     account: 'Cuenta (con la que inicias sesión)'

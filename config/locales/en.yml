@@ -15,6 +15,12 @@ en:
     unlocked_message: "We unstucked your account from logien server"
     online_players: "Online players"
     search: "Search"
+  pack_item:
+    0: 'Mesos'
+    1: 'Maple Points'
+    2: 'Nx Prepaid'
+    3: 'Prepaid + Nx Credit'
+    4: 'Nx Credit'
   vote:
     message: 'Earn 5000 NX Credit for voting, you can vote every 5 hours. Remember disconnect from game server'
     account: 'Account (with which you log in)'
