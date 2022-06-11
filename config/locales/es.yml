@@ -14,6 +14,7 @@ es:
     unlocked: "Cuenta Desbloqueada"
     unlocked_message: "Hemos tenido exito al desblologuear tu cuenta del juego"
     online_players: "Jugadores en linea"
+    packs: 'Paquetes'
     search: "Buscar"
   pack_item:
     0: 'Mesos'

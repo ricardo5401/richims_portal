@@ -14,6 +14,7 @@ en:
     unlocked: "Account Ulocked!"
     unlocked_message: "We unstucked your account from logien server"
     online_players: "Online players"
+    packs: "Packs"
     search: "Search"
   pack_item:
     0: 'Mesos'

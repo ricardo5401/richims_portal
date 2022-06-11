@@ -6,7 +6,7 @@
         <div class="font-medium">
           <%= I18n.t 'stats.characters' %> (<%= account.name %>):
         </div>
-        <div class="w-full mt-2 grid grid-cols-3 gap-4">
+        <div class="w-full mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
           <% account.characters.each do |character| %>
             <div class="border border-gray-200 shadow rounded">
               <div class="px-3 py-2 border-b border-gray-200">

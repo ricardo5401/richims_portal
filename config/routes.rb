@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'characters/index'
 	root 'pages#index'
+  get '/packs', to: 'packs#index'
 	get '/downloads', to: 'pages#downloads'
 	get '/register', to: 'accounts#register'
 	get '/rankings', to: 'characters#rankings'
