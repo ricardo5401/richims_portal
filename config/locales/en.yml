@@ -49,6 +49,7 @@ en:
     mesos: 'x2'
   downloads:
     from: 'Download MSLatino from'
+    patch: 'If you already downloaded before 2022-06-11, please download this'
   jobs:
     000: 'Beginner'
     100: 'Swordsman'

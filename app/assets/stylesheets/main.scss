@@ -1,9 +1,21 @@
 .main-bg {
   background-color: #98d0fb;
   font-family: Rubik, Sans-Serif;
-  background: url(asset-path('background/bg_tower.png')), url(asset-path('background/bg_day.jpg'));
+  background: url(asset-path('background/anime_footer01.gif')), url(asset-path('background/anime_footer04.gif')), url(asset-path('background/anime_footer05.gif')), url(asset-path('background/anime_tower01.gif')), url(asset-path('background/anime_tower02.gif')), url(asset-path('background/anime_sky05.gif')), url(asset-path('background/bg_tower.png')), url(asset-path('background/bg_day.jpg'));
+  background-repeat: no-repeat;
+  background-position: calc(50% - 860px) 715px, calc(50% - 746px) 790px, calc(50% + 884px) 676px, calc(50% - 843px) 254px, calc(50% + 820px) 251px, calc(50% - 658px) 20px, center -35px, center -35px;
 }
-
+@media (max-width: 1024px) {
+  .main-bg {
+    background: url(asset-path('background/bg_tower.png')), url(asset-path('background/bg_day.jpg'));
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: unset;
+  }
+}
+/*
+calc(50% - 860px) 715px,calc(50% + 630px) 740px,calc(50% + 232px) 797px,calc(50% - 746px) 790px,calc(50% + 884px) 676px,calc(50% - 600px) 780px,calc(50% - 843px) 254px,calc(50% + 820px) 251px,calc(50% - 730px) 415px,calc(50% + 694px) 24px,calc(50% - 668px) 616px,calc(50% + 628px) 364px,calc(50% - 658px) 20px,center -35px,center -35px;
+*/
 .right-content .child-container {
   background: #fff8ed;
   border-bottom: solid 3px #dbc19a;

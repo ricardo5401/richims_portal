@@ -49,6 +49,7 @@ es:
     mesos: 'x2'
   downloads:
     from: 'Descarga MSLatino desde'
+    patch: 'Si descargaste el juego antes de 2022-06-11, Por favor descarga este'
   jobs:
     000: 'Novato'
     100: 'Swordsman'
