@@ -1,8 +1,8 @@
 <div class="w-full right-content">
   <img src="<%= asset_path('background/top-grass.png') %>" class="w-full" />
-  <div class="child-container">
-    <div class="w-full mb-4 pb-4 border-b border-gray-200">
-      <% @accounts.each do |account| %>
+  <div class="child-container w-full">
+    <% @accounts.each do |account| %>
+      <div class="w-full mb-4 pb-4 border-b border-gray-200">
         <div class="font-medium">
           <%= I18n.t 'stats.characters' %> (<%= account.name %>):
         </div>
@@ -26,9 +26,9 @@
             </div>
           <% end %>
         </div>
-      <% end %>
+      </div>
+    <% end %>
 
-      <%= will_paginate @accounts, previous_label: '<', next_label: '>' %>
-    </div>
+    <%= will_paginate @accounts, previous_label: '<', next_label: '>' %>
   </div>
 </div>

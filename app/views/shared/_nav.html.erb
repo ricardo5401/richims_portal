@@ -1,11 +1,11 @@
 <nav class="relative w-full p-5 flex items-center justify-around sm:justify-between flex-wrap nav-custom">
   <a href="/" class="no-underline bg-white text-black py-1 px-3 font-bold text-lg relative rounded w-fit md:ml-1">
-    MapleLatino
+    <%= I18n.t 'menu.logo' %>
     <img src="<%= asset_path('menu/maple-leaf-150.png') %>" class="absolute leaf" />
   </a>
-  <a href="/register" class="no-underline bg-white text-black py-0.5 px-2 font-medium text-sm relative rounded w-fit flex items-center">
-    <img src="<%= asset_path('menu/snail.png') %>" class="w-7 mr-1 my-1" />
-    <%= I18n.t 'menu.register' %>
+  <a href="/store" class="no-underline bg-white text-black py-0.5 px-2 font-medium text-sm relative rounded w-fit flex items-center hidden">
+    <img src="<%= asset_path('menu/nxcoin.png') %>" class="w-8 mr-1" />
+    <%= I18n.t 'menu.store' %>
   </a>
   <a href="/downloads" class="no-underline bg-white text-black py-0.5 pl-2 pr-4 font-medium text-sm relative rounded w-fit flex items-center">
     <img src="<%= asset_path('menu/mushrom.png') %>" class="w-8" />
