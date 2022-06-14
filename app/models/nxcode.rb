@@ -1,9 +1,12 @@
 class Nxcode < ApplicationRecord
 	self.table_name = 'nxcode'
-	belongs_to :pack
 
 	def pack_items
 		PackItem.where(pack_id: pack_id)
+	end
+
+	def pack
+		Pack.find_by(id: pack_id)
 	end
 
 	class << self
@@ -12,10 +15,11 @@ class Nxcode < ApplicationRecord
 		end
 
 		def generate(pack_id, exp = generate_expiration)
-			self.create(
+			self.new(
 				code: SecureRandom.hex(6).upcase,
 				expiration: exp,
-				pack_id: pack_id
+				pack_id: pack_id,
+				created_at: DateTime.now
 			)
 		end
 	end

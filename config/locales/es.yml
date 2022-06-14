@@ -26,6 +26,7 @@ es:
     4: 'Nx Credit'
   store:
     buy: 'Comprar'
+    order: 'Mis Compras'
   vote:
     message: 'Gana 5000 NX Créditos por votar, puedes votar cada 5 horas. Recuerda que debes estar desconectado del juego'
     account: 'Cuenta (con la que inicias sesión)'
@@ -54,7 +55,7 @@ es:
     drop: 'x2'
     mesos: 'x2'
   downloads:
-    from: 'Descarga MSLatino desde'
+    from: 'Descarga MapleLatino desde'
     patch: 'Si descargaste el juego antes de 2022-06-11, Por favor descarga este'
   jobs:
     000: 'Novato'

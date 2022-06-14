@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   get '/characters', to: 'characters#index'
   get '/online_characters', to: 'characters#online'
   get '/unlocked', to: 'accounts#unlocked'
+	get '/orders', to: 'store#orders'
   post '/gtop100/callback', to: 'accounts#vote_callback'
   post '/unstuck', to: 'accounts#unstuck'
 	post '/login', to: 'accounts#login'
   post '/accounts', to: 'accounts#create'
+	post '/create_order', to: 'store#create_order'
 	delete '/logout', to: 'accounts#logout', as: :logout
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -26,6 +26,7 @@ en:
     4: 'Nx Credit'
   store:
     buy: 'Buy'
+    order: 'My Orders'
   vote:
     message: 'Earn 5000 NX Credit for voting, you can vote every 5 hours. Remember disconnect from game server'
     account: 'Account (with which you log in)'
@@ -54,7 +55,7 @@ en:
     drop: 'x2'
     mesos: 'x2'
   downloads:
-    from: 'Download MSLatino from'
+    from: 'Download FairyMS from'
     patch: 'If you already downloaded before 2022-06-11, please download this'
   jobs:
     000: 'Beginner'

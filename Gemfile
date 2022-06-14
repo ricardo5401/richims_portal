@@ -86,3 +86,6 @@ gem 'tailwindcss-rails'
 gem "recaptcha"
 gem 'dotenv-rails'
 gem 'will_paginate'
+
+# HTTP CLIENTS
+gem 'httparty'

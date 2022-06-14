@@ -3,12 +3,22 @@ class ApplicationController < ActionController::Base
 	before_action :user_signed_in
 	before_action :server_stats
 	helper_method :current_user
+	helper_method :javascript_links
+	helper_method :current_id
 
 
 	private
 
+	def javascript_links(arr = [])
+		@javascript_links = arr
+	end
+
 	def current_user
 		@current_user ||= Account.find_by(id: session[:current_user_id])
+	end
+
+	def current_id
+		@current_id ||= session[:current_user_id]
 	end
 
 	def user_signed_in

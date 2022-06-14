@@ -8,24 +8,7 @@
     </div>
     <div class="w-full mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
       <% @packs.each do |pack| %>
-        <div class="border border-gray-200 shadow rounded overflow-hidden h-fit">
-          <div class="bg-white w-full h-20 overflow-hidden">
-            <%= image_tag pack.picture, class: 'h-full mx-auto' %>
-          </div>
-          <div class="font-medium py-2 border-b border-gray-200 px-2.5">
-            <%= pack.name %>:
-          </div>
-          <% pack.pack_items.each do |item| %>
-            <div class="pt-2 px-2.5 text-sm">
-              <%= item.item_name %><%= item.item_type < 5 ? '' : "- #{item.quantity}" %>
-            </div>
-          <% end %>
-          <div class="py-2 mt-2 border-t border-gray-200 px-2.5">
-            <a href="#" class="w-full flex items-center justify-center py-1 text-sm rounded-md bg-blue-500 text-white">
-              <%= I18n.t 'store.buy' %> USD<%= pack.price %>
-            </a>
-          </div>
-        </div>
+        <%= render partial: 'store/row', locals: { pack: pack } %>
       <% end %>
     </div>
   </div>
