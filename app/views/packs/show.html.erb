@@ -1,0 +1,90 @@
+<div class="w-full right-content">
+  <img src="<%= asset_path('background/top-grass.png') %>" class="w-full" />
+  <div class="child-container">
+    <div class="w-full mb-4 pb-4 border-b border-gray-200 flex items-center justify-between">
+      <h1 class="font-medium text-lg">
+        <%= @pack.name || 'Invalid Pack!' %>
+      </h1>
+      <div class="flex text-xs">
+        <a href="/packs/<%= @pack.id %>/edit" class="flex items-center justify-center py-1 px-3 rounded border border-gray-200 mr-1">
+          <%= I18n.t 'store.edit' %>
+        </a>
+        <button
+          class="flex items-center justify-center py-1 px-3 rounded border border-blue-600 bg-blue-600 text-white ml-1 disabled:opacity-75 disabled:cursor-not-allowed"
+          onclick="generateGift(this)"
+        >
+          <%= I18n.t 'store.generate' %>
+        </button>
+      </div>
+    </div>
+    <div class="w-full mt-2 overflow-x-auto text-sm">
+      <table class="border-collapse border border-slate-400 w-full">
+        <thead>
+        <tr>
+          <th class="border border-slate-300 px-3 py-2">Buyer</th>
+          <th class="border border-slate-300 px-3 py-2">Item</th>
+          <th class="border border-slate-300 px-3 py-2">Code</th>
+          <th class="border border-slate-300 px-3 py-2">Retriever</th>
+        </tr>
+        </thead>
+        <tbody id="code-list">
+        <% @orders.each do |order| %>
+          <tr>
+            <td class="border border-slate-300 px-3 py-2"><%= order.account&.name || 'Not set' %></td>
+            <td class="border border-slate-300 px-3 py-2">
+              <%= order.pack.name %> (<%= order.pack.price %>)
+            </td>
+            <td class="border border-slate-300 px-3 py-2">
+              <%= order.code %>
+            </td>
+            <td class="border border-slate-300 px-3 py-2"><%= order.retriever || 'Not used' %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= will_paginate @orders, previous_label: '<', next_label: '>' %>
+  </div>
+</div>
+<script>
+  const generateGift = ($el) => {
+		const params = {
+			pack_id: <%= @pack.id %>
+    }
+		$el.disabled = true;
+	  fetch('/generate_gift',
+		  {
+			  method: "POST",
+			  body: JSON.stringify(params),
+			  headers: {
+				  "X-CSRF-Token": document.querySelector("meta[name=\"csrf-token\"]").content,
+				  "Content-type": "application/json"
+			  }
+		  }
+	  ).then(response => response.json().then(data => {
+		  if (data.error) {
+			  alert(data.error);
+		  } else {
+				const list = document.getElementById("code-list");
+				const newRow = list.insertRow(list.rows.length);
+				newRow.innerHTML = `
+          <tr>
+            <td class="border border-slate-300 px-3 py-2">${data.order.account.name}</td>
+            <td class="border border-slate-300 px-3 py-2">
+              ${data.order.pack.name} (${data.order.pack.price.toFixed(1)})
+            </td>
+            <td class="border border-slate-300 px-3 py-2">
+              ${data.order.code}
+            </td>
+            <td class="border border-slate-300 px-3 py-2">${data.order.retriever}</td>
+          </tr>
+				`;
+			  $el.disabled = false;
+		  }
+	  })).catch(err => {
+		  console.log(err);
+		  $el.disabled = false;
+		  alert('Ocurrió un error, por favor contacta a soporte vía discord');
+	  });
+  };
+</script>

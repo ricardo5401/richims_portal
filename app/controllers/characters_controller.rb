@@ -1,4 +1,6 @@
 class CharactersController < ApplicationController
+  before_action :admin_only
+
   def index
     if @user_signed_in
       @characters = Character.where(accountid: session[:current_user_id])
@@ -9,16 +11,11 @@ class CharactersController < ApplicationController
   end
 
   def online
-    if @current_user&.webadmin > 0
-      @page = params[:page] || 1
-      @per_page = 4
-      @accounts = Account.where.not(loggedin: 0)
-                         .includes(:characters)
-                         .paginate(page: @page, per_page: @per_page)
-    else
-      flash[:error] = 'You arent GM'
-      redirect_to '/'
-    end
+    @page = params[:page] || 1
+    @per_page = 4
+    @accounts = Account.where.not(loggedin: 0)
+                       .includes(:characters)
+                       .paginate(page: @page, per_page: @per_page)
   end
 
   def rankings

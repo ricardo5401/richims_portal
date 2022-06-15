@@ -27,6 +27,14 @@ es:
   store:
     buy: 'Comprar'
     order: 'Mis Compras'
+    edit: 'Editar'
+    view: 'Ver'
+    add: 'Crear'
+    save: 'Guardar'
+    new: 'Nuevo Pack'
+    edit_pack: 'Editar Pack'
+    detail: 'Detalles'
+    generate: 'Generar Code'
   vote:
     message: 'Gana 5000 NX Créditos por votar, puedes votar cada 5 horas. Recuerda que debes estar desconectado del juego'
     account: 'Cuenta (con la que inicias sesión)'

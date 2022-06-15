@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 	root 'pages#index'
 	get '/store', to: 'store#index'
-  get '/packs', to: 'packs#index'
 	get '/downloads', to: 'pages#downloads'
 	get '/register', to: 'accounts#register'
 	get '/rankings', to: 'characters#rankings'
@@ -16,6 +15,9 @@ Rails.application.routes.draw do
   post '/accounts', to: 'accounts#create'
 	post '/create_order', to: 'store#create_order'
 	delete '/logout', to: 'accounts#logout', as: :logout
+
+	resources :packs
+	post '/generate_gift', to: 'store#generate_gift'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

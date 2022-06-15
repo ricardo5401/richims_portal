@@ -1,0 +1,21 @@
+<div class="border border-gray-200 shadow rounded overflow-hidden h-fit">
+  <div class="bg-white w-full h-20 overflow-hidden">
+    <%= image_tag pack.picture, class: 'h-full mx-auto' %>
+  </div>
+  <div class="font-medium py-2 border-b border-gray-200 px-2.5">
+    <%= pack.name %>:
+  </div>
+  <% pack.pack_items.each do |item| %>
+    <div class="pt-2 px-2.5 text-sm">
+      <%= item.item_name %><%= item.item_type < 5 ? '' : "- #{item.quantity}" %>
+    </div>
+  <% end %>
+  <div class="py-2 mt-2 border-t border-gray-200 px-2.5 flex text-xs">
+    <a href="/packs/<%= pack.id %>/edit" class="flex w-1/2 items-center justify-center py-1 rounded border border-gray-200 mr-1">
+      <%= I18n.t 'store.edit' %>
+    </a>
+    <a href="/packs/<%= pack.id %>" class="flex w-1/2 items-center justify-center py-1 rounded border border-blue-600 bg-blue-600 text-white ml-1">
+      <%= I18n.t 'store.view' %>
+    </a>
+  </div>
+</div>

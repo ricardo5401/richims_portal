@@ -9,6 +9,10 @@ class Nxcode < ApplicationRecord
 		Pack.find_by(id: pack_id)
 	end
 
+	def account
+		Account.find_by(id: account_id)
+	end
+
 	class << self
 		def generate_expiration(days = 10)
 			((DateTime.now + days.days).to_f * 1000).to_i

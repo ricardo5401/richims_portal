@@ -27,6 +27,14 @@ en:
   store:
     buy: 'Buy'
     order: 'My Orders'
+    edit: 'Edit'
+    view: 'View'
+    add: 'Add new'
+    save: 'Save'
+    new: 'New Pack'
+    edit_pack: 'Edit Pack'
+    detail: 'Pack Detail'
+    generate: 'Generate Code'
   vote:
     message: 'Earn 5000 NX Credit for voting, you can vote every 5 hours. Remember disconnect from game server'
     account: 'Account (with which you log in)'

@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 	helper_method :current_user
 	helper_method :javascript_links
 	helper_method :current_id
+	helper_method :admin_only
 
 
 	private
@@ -15,6 +16,13 @@ class ApplicationController < ActionController::Base
 
 	def current_user
 		@current_user ||= Account.find_by(id: session[:current_user_id])
+	end
+
+	def admin_only
+		unless @current_user && @current_user.webadmin > 0
+			flash[:error] = 'You dont have permissions'
+			redirect_to '/'
+		end
 	end
 
 	def current_id
