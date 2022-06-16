@@ -60,3 +60,12 @@ calc(50% - 860px) 715px,calc(50% + 630px) 740px,calc(50% + 232px) 797px,calc(50%
 .nav-custom a {
   margin-bottom: 5px;
 }
+.ck-html-content, .ck-editor__editable_inline {
+  ul {
+    list-style: disc;
+    padding-left: 16px;
+  }
+  a {
+    color: #0d0dffde;
+  }
+}
