@@ -4,7 +4,10 @@
     <h1 class="font-medium text-lg">
       <%= I18n.t 'menu.downloads' %>
     </h1>
-    <a href="https://mega.nz/file/tEpixaJD#H0mWmEdgGrNaXRe28v8uuiMhcWYeiGNXUVGpN2A_RoE" target="_blank">
+    <div class="py-2 text-sm">
+      <%= I18n.t 'downloads.patch' %> <a href="https://drive.google.com/file/d/1WLXZcgsKasDwqY0lG-zxWYwNiSgqZGEN/view?usp=sharing" class="text-blue-600" target="_blank">patch</a>
+    </div>
+    <a href="https://mega.nz/file/cNhHhT4Q#hhSv0_QuqxZ2Q0A5cN-OddccFIRAa8diSnxa9_TGmGc" target="_blank">
       <div class="my-2 download-row rounded p-5 flex items-center">
         <img src="<%= asset_path('downloads/mega.png') %>" class="rounded overflow-hidden" />
         <div class="pl-5">
@@ -12,7 +15,7 @@
         </div>
       </div>
     </a>
-    <a href="https://drive.google.com/file/d/1yL_jzHceVQIV1kelK48WhAh_jUmIOJgV/view?usp=sharing" target="_blank">
+    <a href="https://drive.google.com/file/d/1vV6wmnE_KYVhUcUWyD6UdKgk2FKMncQa/view?usp=sharing" target="_blank">
       <div class="my-2 download-row rounded p-5 flex items-center">
         <img src="<%= asset_path('downloads/google_drive.png') %>" class="rounded overflow-hidden" />
         <div class="pl-5">
@@ -20,8 +23,5 @@
         </div>
       </div>
     </a>
-    <div class="pt-2 text-sm">
-      <%= I18n.t 'downloads.patch' %> <a href="https://drive.google.com/file/d/1am6OeXA6aW4WNSQm-oGq2nH1zt-v5net/view?usp=sharing" class="text-blue-600" target="_blank">patch</a>
-    </div>
   </div>
 </div>

@@ -1,0 +1,55 @@
+<div class="w-full right-content">
+  <img src="<%= asset_path('background/top-grass.png') %>" class="w-full" />
+  <div class="child-container">
+    <div class="w-full mb-4 pb-4 border-b border-gray-200 flex items-center justify-between">
+      <h1 class="font-medium text-lg">
+        <%= I18n.t 'menu.notice' %>
+      </h1>
+      <a href="/notices/new" class="flex items-center justify-center py-1 text-sm px-3 rounded border border-blue-600 bg-blue-600 text-white">
+        <%= inline_svg_tag('icons/add.svg', { class: 'w-4 h-4 mr-2' }) %>
+        <%= I18n.t 'store.add' %>
+      </a>
+    </div>
+    <div class="hidden">
+      <div class="bg-green-400"></div>
+      <div class="bg-blue-400"></div>
+      <div class="bg-orange-400"></div>
+    </div>
+    <div class="w-full mt-2 overflow-x-auto text-sm">
+      <table class="border-collapse border border-slate-400 w-full">
+        <thead>
+        <tr>
+          <th class="border border-slate-300 px-3 py-2 w-14">Type</th>
+          <th class="border border-slate-300 px-3 py-2">Title</th>
+          <th class="border border-slate-300 px-3 py-2 w-32">Date</th>
+          <th class="border border-slate-300 px-3 py-2 w-36">Actions</th>
+        </tr>
+        </thead>
+        <tbody id="notices-list">
+        <% @notices.each do |notice| %>
+          <tr>
+            <td class="border border-slate-300 px-1 py-2">
+              <div class="<%= I18n.t "notice.background.#{notice.notice_type}" %> text-white text-xs px-1.5 py-0.5 rounded">
+                <%= I18n.t "notice.#{notice.notice_type}" %>
+              </div>
+            </td>
+            <td class="border border-slate-300 px-3 py-2"><%= notice&.title || 'Not set' %></td>
+            <td class="border border-slate-300 px-3 py-2 text-center">
+              <%= I18n.l(notice.created_at, format: "%d, %B") %>
+            </td>
+            <td class="border border-slate-300 px-3 py-2 text-center">
+              <a href="/notices/<%= notice.id %>/edit" class="bg-gray-100 border border-gray-400 rounded px-3 py-1 text-xs mr-1">
+                <%= I18n.t 'store.edit' %>
+              </a>
+              <a href="/notices/<%= notice.id %>" class="bg-blue-500 border border-blue-500 rounded px-3 py-1 text-xs text-white">
+                <%= I18n.t 'store.view' %>
+              </a>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= will_paginate @notices, previous_label: '<', next_label: '>' %>
+  </div>
+</div>

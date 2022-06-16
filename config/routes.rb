@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 	post '/items', to: 'packs#create_item'
 	delete '/remove_item/:id', to: 'packs#remove_item'
 	post '/generate_gift', to: 'store#generate_gift'
+
+	resources :notices
+	get '/notices_admin', to: 'notices#admin'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

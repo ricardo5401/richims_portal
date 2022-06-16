@@ -24,13 +24,23 @@ en:
     2: 'Nx Prepaid'
     3: 'Prepaid + Nx Credit'
     4: 'Nx Credit'
+  notice:
+    new: 'New Notice'
+    edit: 'Edit'
+    0: 'Notice'
+    1: 'Update'
+    2: 'Event'
+    background:
+      0: 'bg-green-400'
+      1: 'bg-blue-400'
+      2: 'bg-orange-400'
   store:
     name: 'Store'
     about: 'By buying a package you are helping the project to continue online.'
     buy: 'Buy'
     order: 'My Orders'
     edit: 'Edit'
-    view: 'View'
+    view: 'Show'
     add: 'Add new'
     save: 'Save'
     new: 'New Pack'
@@ -69,6 +79,17 @@ en:
   downloads:
     from: 'Download FairyMS from'
     patch: 'If you already downloaded before 2022-06-11, please download this'
+  date:
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [ ~, January, February, March, April, May, June, July, August, September, October, November, December ]
+    abbr_month_names: [ ~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec ]
+  time:
+    formats:
+      default: "%B %d, %Y"
+      short: "%b %d"
+      middle: "%b %d, %Y"
+      long: "%B %d, %Y"
+      with_time: "%B %d, %Y HH:mm"
   jobs:
     000: 'Beginner'
     100: 'Swordsman'

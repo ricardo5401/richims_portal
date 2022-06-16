@@ -24,6 +24,16 @@ es:
     2: 'Nx Prepaid'
     3: 'Prepaid + Nx Credit'
     4: 'Nx Credit'
+  notice:
+    new: 'Nueva Noticia'
+    edit: 'Editar'
+    0: 'Notice'
+    1: 'Update'
+    2: 'Event'
+    background:
+      0: 'bg-green-400'
+      1: 'bg-blue-400'
+      2: 'bg-orange-400'
   store:
     name: 'Tienda'
     about: 'Al comprar un paquete estas contribuyendo a que el proyecto siga en linea.'
@@ -69,6 +79,17 @@ es:
   downloads:
     from: 'Descarga MapleLatino desde'
     patch: 'Si descargaste el juego antes de 2022-06-11, Por favor descarga este'
+  date:
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [ ~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre ]
+    abbr_month_names: [ ~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic ]
+  time:
+    formats:
+      default: "%B %d, %Y"
+      short: "%b %d"
+      middle: "%b %d, %Y"
+      long: "%B %d, %Y"
+      with_time: "%B %d, %Y HH:mm"
   jobs:
     000: 'Novato'
     100: 'Swordsman'

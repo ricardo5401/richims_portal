@@ -1,0 +1,95 @@
+<%= form_with model: @notice, html: { onsubmit: "onSubmit(event)" } do |form| %>
+	<div class="mb-3">
+		<select
+			id="notice_type"
+			class="deactivate disabled:opacity-75 disabled:cursor-not-allowed w-full border border-gray-200 text-gray-900 text-sm rounded-lg focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+		>
+			<option <%= @notice.notice_type == 0 ? 'selected' : '' %> value="0">Notice</option>
+			<option <%= @notice.notice_type == 1 ? 'selected' : '' %> value="1">Update</option>
+			<option <%= @notice.notice_type == 2 ? 'selected' : '' %> value="2">Event</option>
+		</select>
+	</div>
+  <%= form.text_field :title, class: 'deactivate disabled:opacity-75 disabled:cursor-not-allowed w-full border-gray-200 rounded text-base mb-3', placeholder: 'Title' %>
+  <%= form.text_field :title_es, class: 'deactivate disabled:opacity-75 disabled:cursor-not-allowed w-full border-gray-200 rounded text-base mb-3', placeholder: 'Título (español)' %>
+  <label class="font-medium mb-2 flex">Description (english)</label>
+  <div class="mb-3 overflow-x-hidden">
+    <div id="notice_description">
+			<%= @notice.description&.html_safe %>
+		</div>
+  </div>
+  <label class="font-medium mb-2 flex">Description (Spanish)</label>
+  <div class="mb-3 overflow-x-hidden">
+    <div id="notice_description_es">
+			<%= @notice.description_es&.html_safe %>
+		</div>
+  </div>
+  <button
+    type="submit"
+    class="deactivate disabled:opacity-75 disabled:cursor-not-allowed py-1.5 px-5 rounded text-sm bg-blue-600 text-white"
+  >
+    <%= I18n.t 'store.save' %>
+  </button>
+<% end %>
+<script>
+	const deactivateAll = () => {
+		const inputs = document.querySelectorAll('.deactivate');
+		inputs.forEach(input => input.disabled = true);
+	};
+	const activateAll = () => {
+		const inputs = document.querySelectorAll('.deactivate');
+		inputs.forEach(input => input.disabled = false);
+	};
+	let description = undefined;
+	window.ClassicEditor
+		.create( document.querySelector( '#notice_description' ) )
+		.then(editor => { description = editor })
+		.catch( error => {
+			console.error( error );
+		} );
+	let descriptionEs = undefined;
+	window.ClassicEditor
+		.create( document.querySelector( '#notice_description_es' ) )
+		.then(editor => { descriptionEs = editor })
+		.catch( error => {
+			console.error( error );
+		} );
+
+	const onSubmit = (e) => {
+		e.preventDefault();
+		deactivateAll();
+		const params = {
+			notice: {
+				title: document.getElementById("notice_title").value,
+				title_es: document.getElementById("notice_title_es").value,
+				description: description.getData().toString(),
+				description_es: descriptionEs.getData().toString(),
+				notice_type: parseInt(document.getElementById("notice_type").value)
+			}
+		};
+		if (params.notice.title != "" && params.notice.title_es != "") {
+			fetch("<%= @notice.id ? "/notices/#{@notice.id}" : '/notices' %>",
+				{
+					method: "<%= @notice.id ? "PUT" : "POST" %>",
+					body: JSON.stringify(params),
+					headers: {
+						"X-CSRF-Token": document.querySelector("meta[name=\"csrf-token\"]").content,
+						"Content-type": "application/json"
+					}
+				}
+			).then(response => response.json().then(data => {
+				if (data.error) {
+					alert(data.error);
+				} else {
+					window.location.href = "/notices";
+				}
+			})).catch(err => {
+				console.log(err);
+				alert('Ocurrió un error, por favor contacta a soporte vía discord');
+				activateAll();
+			});
+		} else {
+			alert("completa los campos!");
+			activateAll();
+		}
+  }
+</script>

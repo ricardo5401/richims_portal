@@ -1,0 +1,21 @@
+<div class="w-full right-content">
+  <img src="<%= asset_path('background/top-grass.png') %>" class="w-full" />
+  <div class="child-container">
+    <div class="hidden">
+      <div class="bg-green-400"></div>
+      <div class="bg-blue-400"></div>
+      <div class="bg-orange-400"></div>
+    </div>
+    <div class="w-full mb-4 pb-4 border-b border-gray-200 flex items-center justify-between">
+      <h1 class="font-medium text-lg">
+        <%= session[:locale] == 'en' ? @notice.title : @notice.title_es %>
+      </h1>
+      <div class="<%= I18n.t "notice.background.#{@notice.notice_type}" %> text-white text-xs px-1.5 py-0.5 rounded">
+        <%= I18n.t "notice.#{@notice.notice_type}" %>
+      </div>
+    </div>
+    <div class="w-full mt-2 text-sm">
+      <%= session[:locale] == 'en' ? @notice.description.html_safe : @notice.description_es.html_safe %>
+    </div>
+  </div>
+</div>

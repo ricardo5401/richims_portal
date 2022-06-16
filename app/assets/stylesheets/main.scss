@@ -5,6 +5,10 @@
   background-repeat: no-repeat;
   background-position: calc(50% - 860px) 715px, calc(50% - 746px) 790px, calc(50% + 884px) 676px, calc(50% - 843px) 254px, calc(50% + 820px) 251px, calc(50% - 658px) 20px, center -35px, center -35px;
 }
+.ck-focused {
+  border-color: #d1d5db !important;
+}
+.ck-editor__editable {height: 180px!important;}
 @media (max-width: 1024px) {
   .main-bg {
     background: url(asset-path('background/bg_tower.png')), url(asset-path('background/bg_day.jpg'));

@@ -19,9 +19,19 @@
     </div>
   <% end %>
   <div class="py-2 mt-2 border-t border-gray-200 px-2.5">
-    <div id="pack-<%= pack.id %>"></div>
+		<% if @user_signed_in %>
+			<div id="pack-<%= pack.id %>"></div>
+		<% else %>
+			<button
+				class="rounded w-full py-1 text-sm text-white font-medium bg-blue-500"
+				onclick="alert('Please login to continue')"
+			>
+				Paypal
+			</button>
+		<% end %>
   </div>
 </div>
+<% if @user_signed_in %>
 <script>
 	paypal.Buttons({
 		style: {
@@ -72,3 +82,4 @@
 		}
 	}).render("#pack-<%= pack.id %>");
 </script>
+<% end %>
