@@ -26,7 +26,7 @@ es:
     4: 'Nx Credit'
   store:
     name: 'Tienda'
-    about: 'Al comprar un paquete estas contribuyendo a que el proyecto siga en linea. Todos los paquetes contienen el rango Donor'
+    about: 'Al comprar un paquete estas contribuyendo a que el proyecto siga en linea.'
     buy: 'Comprar'
     order: 'Mis Compras'
     edit: 'Editar'

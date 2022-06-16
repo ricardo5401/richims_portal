@@ -26,7 +26,7 @@ en:
     4: 'Nx Credit'
   store:
     name: 'Store'
-    about: 'By buying a package you are helping the project to continue online. All packs contain the Donor rank'
+    about: 'By buying a package you are helping the project to continue online.'
     buy: 'Buy'
     order: 'My Orders'
     edit: 'Edit'
