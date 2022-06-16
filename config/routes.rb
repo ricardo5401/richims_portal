@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 	delete '/logout', to: 'accounts#logout', as: :logout
 
 	resources :packs
+	post '/create_item', to: 'packs#create_item'
+	delete '/remove_item/:id', to: 'packs#remove_item'
 	post '/generate_gift', to: 'store#generate_gift'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

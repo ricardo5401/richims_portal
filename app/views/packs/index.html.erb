@@ -15,5 +15,6 @@
         <%= render partial: 'packs/row', locals: { pack: pack } %>
       <% end %>
     </div>
+    <%= will_paginate @packs, previous_label: '<', next_label: '>' %>
   </div>
 </div>

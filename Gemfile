@@ -90,3 +90,4 @@ gem 'will_paginate'
 # HTTP CLIENTS
 gem 'httparty'
 gem 'inline_svg'
+gem 'si'

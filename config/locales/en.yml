@@ -25,6 +25,8 @@ en:
     3: 'Prepaid + Nx Credit'
     4: 'Nx Credit'
   store:
+    name: 'Store'
+    about: 'By buying a package you are helping the project to continue online. All packs contain the Donor rank'
     buy: 'Buy'
     order: 'My Orders'
     edit: 'Edit'
@@ -35,6 +37,8 @@ en:
     edit_pack: 'Edit Pack'
     detail: 'Pack Detail'
     generate: 'Generate Code'
+    new_item: 'New Item'
+    cancel: 'Cancel'
   vote:
     message: 'Earn 5000 NX Credit for voting, you can vote every 5 hours. Remember disconnect from game server'
     account: 'Account (with which you log in)'

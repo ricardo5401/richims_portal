@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MSLatino</title>
+    <title><%= I18n.t 'menu.logo' %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Hecho por fans, para fans de MapleStory">
     <%= favicon_link_tag asset_path('favicon.ico') %>
@@ -13,6 +13,9 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <% @javascript_links&.each do |link| %>
     <script src="<%= link %>"></script>
+    <% end %>
+    <% @style_links&.each do |link| %>
+      <link rel="stylesheet" src="<%= link %>" />
     <% end %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 

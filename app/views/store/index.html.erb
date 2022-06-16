@@ -3,8 +3,11 @@
   <div class="child-container">
     <div class="w-full mb-4 pb-4 border-b border-gray-200">
       <h1 class="font-medium text-lg">
-        <%= I18n.t 'menu.packs' %>
+        <%= I18n.t 'store.name' %>
       </h1>
+      <div class="text-xs">
+        <%= I18n.t 'store.about' %>
+      </div>
     </div>
     <div class="w-full mt-2 grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
       <% @packs.each do |pack| %>

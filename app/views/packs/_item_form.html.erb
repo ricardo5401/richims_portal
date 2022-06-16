@@ -1,0 +1,179 @@
+<div
+  id="itemModal"
+  tabindex="-1"
+  aria-hidden="true"
+  style="background: #000000a6"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 bottom-0 z-50 w-full md:inset-0 h-modal md:h-full"
+>
+  <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+    <!-- Modal content -->
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <!-- Modal header -->
+      <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          <%= I18n.t 'store.new_item' %>
+        </h3>
+        <button
+          type="button"
+          id="collapse1"
+          class="deactivate disabled:opacity-75 disabled:cursor-not-allowed text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          data-modal-toggle="itemModal"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="p-6 space-y-6">
+        <select
+          id="item_type"
+          class="deactivate disabled:opacity-75 disabled:cursor-not-allowed border border-gray-200 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+          onchange="onChangeSelect(this)"
+        >
+          <option selected value="0">Mesos</option>
+          <option value="1">Maple Points</option>
+          <option value="2">Nx Prepaid</option>
+          <option value="4">Nx Credit</option>
+          <option value="5">Item (ALL)</option>
+        </select>
+        <input
+          type="text"
+          id="item_name"
+          placeholder="Item Name"
+          value=""
+          class="deactivate disabled:opacity-75 disabled:cursor-not-allowed hidden border border-gray-200 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 mt-4"
+        />
+        <input
+          type="text"
+          id="item_id"
+          placeholder="Item ID"
+          value=""
+          class="deactivate disabled:opacity-75 disabled:cursor-not-allowed hidden border border-gray-200 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 mt-4"
+          />
+        <input
+          type="number"
+          id="quantity"
+          placeholder="Quantity"
+          value="1"
+          class="deactivate disabled:opacity-75 disabled:cursor-not-allowed border border-gray-200 text-gray-900 text-sm rounded-lg focus:border-blue-500 block w-full p-2.5 mt-4"
+        />
+      </div>
+      <!-- Modal footer -->
+      <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+        <button
+          type="button"
+          onclick="onCreateItem()"
+          class="deactivate disabled:opacity-75 disabled:cursor-not-allowed text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        ><%= I18n.t 'store.save' %></button>
+        <button
+          data-modal-toggle="itemModal"
+          type="button"
+          class="deactivate disabled:opacity-75 disabled:cursor-not-allowed text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+        ><%= I18n.t 'store.cancel' %></button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  const deactivateAll = () => {
+	  const inputs = document.querySelectorAll('.deactivate');
+	  inputs.forEach(input => input.disabled = true);
+  };
+  const activateAll = () => {
+	  const inputs = document.querySelectorAll('.deactivate');
+	  inputs.forEach(input => input.disabled = false);
+  };
+  const onChangeSelect = (el) => {
+		const _type = parseInt(el.value);
+		const itemName = document.getElementById("item_name");
+	  const itemID = document.getElementById("item_id");
+		if (_type > 4) {
+			itemID.classList.remove("hidden");
+			itemName.classList.remove("hidden");
+    } else {
+			itemID.classList.add("hidden");
+			itemName.classList.add("hidden");
+    }
+		console.log(_type);
+  };
+	const clearInputs = () => {
+		document.getElementById("quantity").value = 1;
+		document.getElementById("item_type").value = 0;
+		const itemName = document.getElementById("item_name");
+		const itemID = document.getElementById("item_id");
+		itemName.value = "";
+		itemName.classList.add("hidden");
+		itemID.value = "";
+		itemID.classList.add("hidden");
+  };
+	const buildParams = () => {
+		const quantity = document.getElementById("quantity");
+		const itemType = document.getElementById("item_type");
+		const itemName = document.getElementById("item_name");
+		const itemID = document.getElementById("item_id");
+		const params = {
+			pack_item: {
+				pack_id: <%= @pack.id %>,
+				item_type: parseInt(itemType.value),
+				item_id: itemID.value || '4000000',
+				item_name: itemName.value,
+				quantity: parseInt(quantity.value)
+			}
+		};
+		return params;
+  };
+	const onCreateItem = () => {
+		deactivateAll();
+		const params = buildParams();
+		if (
+			(params.pack_item.item_type < 5 && params.pack_item.quantity > 0) ||
+			(params.pack_item.item_name !== "" && params.pack_item.item_id !== "")
+    ) {
+			fetch('/create_item',
+				{
+					method: "POST",
+					body: JSON.stringify(params),
+					headers: {
+						"X-CSRF-Token": document.querySelector("meta[name=\"csrf-token\"]").content,
+						"Content-type": "application/json"
+					}
+				}
+			).then(response => response.json().then(data => {
+				if (data.error) {
+					alert(data.error);
+				} else {
+					const list = document.getElementById("item-list");
+					const newRow = list.insertRow(list.rows.length);
+					newRow.id = `item-row-${data.pack_item.id}`;
+					newRow.innerHTML = `
+            <tr id="item-row-${data.pack_item.id}">
+              <td class="border border-slate-300 px-2 py-1">
+                <button
+									class="text-xs text-white bg-red-600 rounded px-2 py-0.5"
+									onclick="onRemoveItem(this, ${data.pack_item.id})"
+								>
+                  x
+                </button>
+              </td>
+              <td class="border border-slate-300 px-2 py-1">
+                ${data.pack_item.item_name}
+              </td>
+              <td class="border border-slate-300 px-2 py-1">
+                ${data.pack_item.quantity}
+              </td>
+            </tr>
+				`;
+					document.getElementById("itemModal").classList.add("hidden");
+					activateAll();
+					clearInputs();
+				}
+			})).catch(err => {
+				console.log(err);
+				alert('Ocurrió un error, por favor contacta a soporte vía discord');
+				activateAll();
+			});
+    } else {
+			alert("completa los campos!");
+			activateAll();
+    }
+  };
+</script>

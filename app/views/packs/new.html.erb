@@ -5,27 +5,19 @@
       <h1 class="font-medium text-lg">
         <%= I18n.t 'store.new' %>
       </h1>
-      <button class="flex items-center justify-center py-1 text-sm px-3 rounded border border-blue-600 bg-blue-600 text-white">
-        <%= inline_svg_tag('icons/add.svg', { class: 'w-4 h-4 mr-2' }) %>
-        <%= I18n.t 'store.add' %> Item
-      </button>
     </div>
     <div class="flex">
       <div class="flex w-1/2 pr-2">
         <%= render partial: 'packs/form' %>
       </div>
-      <div class="flex flex-col w-1/2 pl-2 border-l border-gray-200">
-        <table class="border-collapse border border-slate-400 w-full text-sm">
-          <thead>
-          <tr>
-            <th class="border border-slate-300 px-2 py-1" style="width: 15px;"></th>
-            <th class="border border-slate-300 px-2 py-1">Name</th>
-            <th class="border border-slate-300 px-2 py-1">Quantity</th>
-          </tr>
-          </thead>
-          <tbody id="code-list">
-          </tbody>
-        </table>
+      <div class="flex flex-col w-1/2 pl-4 border-l border-gray-200 text-sm">
+        <div class="font-medium">
+          Steps:
+        </div>
+        <ol class="list-decimal pl-4">
+          <li>Add Name and price</li>
+          <li>Add items!</li>
+        </ol>
       </div>
     </div>
   </div>

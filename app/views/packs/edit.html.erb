@@ -5,7 +5,10 @@
       <h1 class="font-medium text-lg">
         <%= I18n.t 'store.edit_pack' %>
       </h1>
-      <button class="flex items-center justify-center py-1 text-sm px-3 rounded border border-blue-600 bg-blue-600 text-white">
+      <button
+        class="flex items-center justify-center py-1 text-sm px-3 rounded border border-blue-600 bg-blue-600 text-white"
+        type="button" data-modal-toggle="itemModal"
+      >
         <%= inline_svg_tag('icons/add.svg', { class: 'w-4 h-4 mr-2' }) %>
         <%= I18n.t 'store.add' %> Item
       </button>
@@ -23,11 +26,14 @@
             <th class="border border-slate-300 px-2 py-1">Quantity</th>
           </tr>
           </thead>
-          <tbody id="code-list">
+          <tbody id="item-list">
           <% @pack.pack_items.each do |item| %>
-            <tr>
+            <tr id="item-row-<%= item.id %>">
               <td class="border border-slate-300 px-2 py-1">
-                <button class="text-xs text-white bg-red-600 rounded px-2 py-0.5">
+                <button
+                  class="text-xs text-white bg-red-600 rounded px-2 py-0.5 disabled:opacity-75"
+                  onclick="onRemoveItem(this, <%= item.id %>)"
+                >
                   x
                 </button>
               </td>
@@ -45,3 +51,29 @@
     </div>
   </div>
 </div>
+<%= render partial: 'packs/item_form' %>
+<script>
+  const onRemoveItem = (el, id) => {
+		el.disabled = true;
+
+	  fetch(`/remove_item/${id}`,
+		  {
+			  method: "DELETE",
+			  headers: {
+				  "X-CSRF-Token": document.querySelector("meta[name=\"csrf-token\"]").content,
+				  "Content-type": "application/json"
+			  }
+		  }
+	  ).then(response => response.json().then(data => {
+		  if (data.error) {
+			  alert(data.error);
+		  } else {
+			  document.getElementById(`item-row-${id}`).remove();
+		  }
+	  })).catch(err => {
+		  console.log(err);
+		  alert('Ocurrió un error, por favor contacta a soporte vía discord');
+		  el.disabled = false;
+	  });
+  };
+</script>

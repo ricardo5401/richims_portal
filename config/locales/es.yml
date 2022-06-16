@@ -25,6 +25,8 @@ es:
     3: 'Prepaid + Nx Credit'
     4: 'Nx Credit'
   store:
+    name: 'Tienda'
+    about: 'Al comprar un paquete estas contribuyendo a que el proyecto siga en linea. Todos los paquetes contienen el rango Donor'
     buy: 'Comprar'
     order: 'Mis Compras'
     edit: 'Editar'
@@ -35,6 +37,8 @@ es:
     edit_pack: 'Editar Pack'
     detail: 'Detalles'
     generate: 'Generar Code'
+    new_item: 'Nuevo Item'
+    cancel: 'Cancelar'
   vote:
     message: 'Gana 5000 NX Créditos por votar, puedes votar cada 5 horas. Recuerda que debes estar desconectado del juego'
     account: 'Cuenta (con la que inicias sesión)'

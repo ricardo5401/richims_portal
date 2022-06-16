@@ -6,12 +6,17 @@ class ApplicationController < ActionController::Base
 	helper_method :javascript_links
 	helper_method :current_id
 	helper_method :admin_only
+	helper_method :style_links
 
 
 	private
 
 	def javascript_links(arr = [])
 		@javascript_links = arr
+	end
+
+	def style_links(arr = [])
+		@style_links = arr
 	end
 
 	def current_user

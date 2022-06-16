@@ -6,8 +6,13 @@
     <%= pack.name %>:
   </div>
   <% pack.pack_items.each do |item| %>
-    <div class="pt-2 px-2.5 text-sm">
-      <%= item.item_name %><%= item.item_type < 5 ? '' : "- #{item.quantity}" %>
+    <div class="pt-2 px-2.5 text-sm flex justify-between">
+			<span>
+				<%= item.item_name %>
+			</span>
+      <% if item.item_type > 4 %>
+        <span><%= item.quantity %></span>
+      <% end %>
     </div>
   <% end %>
   <div class="py-2 mt-2 border-t border-gray-200 px-2.5 flex text-xs">
