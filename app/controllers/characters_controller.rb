@@ -1,5 +1,5 @@
 class CharactersController < ApplicationController
-  before_action :admin_only
+  before_action :admin_only, only: :online
 
   def index
     if @user_signed_in
