@@ -49,7 +49,7 @@
 					pack_id: <%= pack.id %>,
 					order_id: details.id
 				};
-				fetch('/create_order',
+				fetch('/orders',
 					{
 						method: "POST",
 						body: JSON.stringify(params),

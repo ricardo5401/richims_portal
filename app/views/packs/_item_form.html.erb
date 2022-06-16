@@ -128,7 +128,7 @@
 			(params.pack_item.item_type < 5 && params.pack_item.quantity > 0) ||
 			(params.pack_item.item_name !== "" && params.pack_item.item_id !== "")
     ) {
-			fetch('/create_item',
+			fetch('/items',
 				{
 					method: "POST",
 					body: JSON.stringify(params),
