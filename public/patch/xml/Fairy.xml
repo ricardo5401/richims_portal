@@ -7,4 +7,16 @@
   <r2>
     <UI>https://www.maplelatino.com/patch/files/UI.wzp</UI>
   </r2>
+  <r3>
+    <Mob>https://www.maplelatino.com/patch/files/chaos-zakum/Mob.wzp</Mob>
+  </r3>
+  <r4>
+    <Skill>https://www.maplelatino.com/patch/files/chaos-zakum/Skill.wzp</Skill>
+  </r4>
+  <r5>
+    <Sound>https://www.maplelatino.com/patch/files/chaos-zakum/Sound.wzp</Sound>
+  </r5>
+  <r6>
+    <String>https://www.maplelatino.com/patch/files/chaos-zakum/String.wzp</String>
+  </r6>
 </DownloadLinks>
