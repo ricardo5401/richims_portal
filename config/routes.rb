@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 	root 'pages#index'
+	get '/launcher', to: 'pages#launcher'
 	get '/store', to: 'store#index'
 	get '/downloads', to: 'pages#downloads'
 	get '/register', to: 'accounts#register'

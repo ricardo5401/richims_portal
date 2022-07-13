@@ -26,13 +26,18 @@
     <div class="w-full max-w-4xl mx-auto">
       <%= render partial: 'shared/nav' %>
       <div class="w-full flex flex-col sm:flex-row">
-        <div class="w-sidebar mx-auto">
+        <div class="w-sidebar mx-auto hidden sm:block">
           <%= render partial: 'shared/account' %>
           <br />
           <%= render partial: 'shared/stats' %>
         </div>
         <div class="w-full sm:w-leftbar">
           <%= yield %>
+        </div>
+        <div class="w-sidebar mx-auto sm:hidden">
+          <%= render partial: 'shared/account' %>
+          <br />
+          <%= render partial: 'shared/stats' %>
         </div>
       </div>
       <%= render partial: 'shared/flash' %>

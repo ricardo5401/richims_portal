@@ -1,0 +1,60 @@
+<div class="w-full right-content">
+  <img src="<%= asset_path('background/top-grass.png') %>" class="w-full" />
+  <div class="child-container">
+    <div class="flex justify-between items-center">
+      <h1 class="font-medium text-lg">
+        <%= I18n.t 'menu.notice' %>
+      </h1>
+      <% if @notices.size > 4 %>
+        <a href="/notices" class="text-sm text-blue-500">
+          Ver más
+        </a>
+      <% end %>
+    </div>
+    <div class="w-full mt-2">
+      <% @notices.each do |notice| %>
+        <a href="/notices/<%= notice.id %>">
+          <div class="flex items-center justify-between py-2 border-t border-gray-200">
+            <div class="flex items-center" style="max-width: calc(100% - 70px)">
+              <div class="<%= I18n.t "notice.background.#{notice.notice_type}" %> text-white px-1.5 rounded mr-2 text-center" style="font-size: 11px; width: 50px;">
+                <%= I18n.t "notice.#{notice.notice_type}" %>
+              </div>
+              <div class="truncate font-medium">
+                <%= session[:locale] == 'en' ? notice.title : notice.title_es %>
+              </div>
+            </div>
+            <div>
+              <%= I18n.l(notice.created_at, format: "%d, %B") %>
+            </div>
+          </div>
+        </a>
+      <% end %>
+      <% if @notices.size < 1 %>
+        <div class="py-2">
+          No hay Noticias
+        </div>
+      <% end %>
+    </div>
+    <hr />
+    <h2 class="font-medium text-lg mt-6">
+      GamePlay
+    </h2>
+    <div class="w-full mt-2">
+      <div
+        class="inline-block relative bg-black overflow-hidden shadow-xl transform transition-all mb-8 align-middle sm:max-w-5xl w-full"
+        style="padding-bottom: 56.25%; padding-top: 30px;"
+      >
+        <iframe
+          title="Programa de contribuidores"
+          width="100%"
+          height="100%"
+          style="width: 100%; height: 100%"
+          class="absolute top-0 left-0"
+          src="https://www.youtube.com/embed/iEFuDCjc-44"
+          frameBorder="0"
+          allowFullScreen
+          ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
