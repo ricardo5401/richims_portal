@@ -22,8 +22,9 @@ class CharactersController < ApplicationController
     @query = params[:query] || ''
     @page = (params[:page] || 1).to_i
     @per_page = 5
+    # disable rank for now.
     @characters = Character.where(build_params)
-                           .order(rank: :asc, level: :desc, exp: :desc)
+                           .order(level: :desc, exp: :desc)
                            .paginate(page: @page, per_page: @per_page)
   end
 
