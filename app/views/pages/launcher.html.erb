@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="w-full mt-2 text-sm ck-html-content">
-      <%= (session[:locale] == 'en' ? @notice.description.html_safe : @notice.description_es.html_safe).gsub('href', ' target="blank" href') %>
+      <%= (session[:locale] == 'en' ? @notice.description : @notice.description_es).gsub('href', ' target="blank" href').html_safe %>
     </div>
   </div>
 </div>
