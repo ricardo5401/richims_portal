@@ -77,6 +77,7 @@ en:
     drop: 'x2'
     mesos: 'x2'
   downloads:
+    antivirus: 'Please disable your antivirus before downloading the game. Then exclude the game folder from your antivirus inspection'
     from: 'Download FairyMS from'
     patch: 'If you already downloaded before 2022-06-11, please download this'
   date:

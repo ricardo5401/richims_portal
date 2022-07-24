@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+	layout 'empty', only: :launcher
 	def index
 		@notices = Notice.where(status: 'active')
 		                 .order(id: :desc)
@@ -12,8 +13,7 @@ class PagesController < ApplicationController
 	end
 
 	def launcher
-		@notices = Notice.where(status: 'active')
-		                 .order(id: :desc)
-		                 .paginate(page: 1, per_page: 5)
+		@notice = Notice.where(status: 'active')
+		                 .last
 	end
 end

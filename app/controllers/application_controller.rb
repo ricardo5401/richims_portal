@@ -44,8 +44,12 @@ class ApplicationController < ActionController::Base
 		@username = current_user&.name if @user_signed_in
 	end
 
+	def build_locale_by_request
+		request.base_url.include?("maplelatino") ? "es" : "en"
+	end
+
 	def switch_locale(&action)
-		locale = params[:locale] || session[:locale]
+		locale = params[:locale] || session[:locale] || build_locale_by_request
 		if (I18n.available_locales - [I18n.default_locale]).map(&:to_s).exclude? locale
 			locale = I18n.default_locale
 		end

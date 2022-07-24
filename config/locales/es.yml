@@ -77,6 +77,7 @@ es:
     drop: 'x2'
     mesos: 'x2'
   downloads:
+    antivirus: 'Deshabilita tu antivirus antes de descargar el juego. Luego excluye la carpeta del juego de la inspección de tu antivirus'
     from: 'Descarga MapleLatino desde'
     patch: 'Si descargaste el juego antes de 2022-06-11, Por favor descarga este'
   date:
