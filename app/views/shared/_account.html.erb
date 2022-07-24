@@ -4,9 +4,9 @@
       <%= I18n.t 'menu.account' %>
     </div>
     <br />
-    <div class="child-content <%= @current_user&.webadmin > 0 ? "mt-4" : "mt-6" %>">
+    <div class="child-content <%= (@current_user&.webadmin || 0) > 0 ? "mt-4" : "mt-6" %>">
       <% if @username %>
-        <div class="<%= @current_user&.webadmin > 0 ? "mb-2" : "mb-6" %> font-medium">
+        <div class="<%= (@current_user&.webadmin || 0) > 0 ? "mb-2" : "mb-6" %> font-medium">
           <%= @username %>
         </div>
       <% end %>
