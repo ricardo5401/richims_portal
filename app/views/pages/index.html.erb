@@ -20,7 +20,7 @@
                 <%= I18n.t "notice.#{notice.notice_type}" %>
               </div>
               <div class="truncate font-medium">
-                <%= session[:locale] == 'en' ? notice.title : notice.title_es %>
+                <%= session[:locale] == 'es' ? notice.title_es : notice.title %>
               </div>
             </div>
             <div>
