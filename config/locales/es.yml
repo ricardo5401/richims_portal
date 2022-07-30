@@ -79,7 +79,7 @@ es:
   downloads:
     antivirus: 'Deshabilita tu antivirus antes de descargar el juego. Luego excluye la carpeta del juego de la inspección de tu antivirus'
     from: 'Descarga MapleLatino desde'
-    patch: 'Si descargaste el juego antes de 2022-06-11, Por favor descarga este'
+    patch: 'Si descargaste el juego entre el 24 y 29 de julio, Por favor descarga este'
   date:
     # Don't forget the nil at the beginning; there's no such thing as a 0th month
     month_names: [ ~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre ]

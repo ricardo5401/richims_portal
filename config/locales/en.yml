@@ -79,7 +79,7 @@ en:
   downloads:
     antivirus: 'Please disable your antivirus before downloading the game. Then exclude the game folder from your antivirus inspection'
     from: 'Download FairyMS from'
-    patch: 'If you already downloaded before 2022-06-11, please download this'
+    patch: 'If you already downloaded between july 24 and 29, please download this'
   date:
     # Don't forget the nil at the beginning; there's no such thing as a 0th month
     month_names: [ ~, January, February, March, April, May, June, July, August, September, October, November, December ]
