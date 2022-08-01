@@ -23,7 +23,9 @@ class CharactersController < ApplicationController
     @page = (params[:page] || 1).to_i
     @per_page = 5
     # disable rank for now.
-    @characters = Character.where(build_params)
+    @characters = Character.joins('inner join accounts on accounts.id = characters.accountid')
+                           .where(build_params)
+                           .where.not(accounts: {banned: 1})
                            .order(level: :desc, exp: :desc)
                            .paginate(page: @page, per_page: @per_page)
   end
